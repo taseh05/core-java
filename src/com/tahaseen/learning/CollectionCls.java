@@ -3,17 +3,17 @@ package com.tahaseen.learning;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.Stack;
+import java.util.Collections;
 
 public class CollectionCls {
 	
-	public void IterableMethodsDemo() {
-		List<Integer> numbers = new ArrayList<>();
-		numbers.add(1);
-		numbers.add(1, 2);
-		
+	public void IterableMethodsDemo(List<Integer> numbers) {
+	
+		Collections.sort(numbers);
 		Iterator<Integer> iterator = numbers.iterator(); //Iterable interface method
-		System.out.println("Using Iterator method");
+		System.out.println("Using Iterator method : sorted list using Collections");
 		while(iterator.hasNext()) {
 			int num = iterator.next();
 			System.out.println(num + " ");
@@ -21,18 +21,22 @@ public class CollectionCls {
 		
 		System.out.println("Using forEach method");
 		numbers.forEach(val-> System.out.println(val));//Iterable interface method
+		
+		Collections.reverse(numbers);
+		System.out.println("Reversed List:");
+		for(Integer num:numbers) {
+			System.out.println(num + " ");
+		}
+		System.out.println("max:" + Collections.max(numbers));
+		System.out.println("min:" + Collections.min(numbers));
 	}
 	
-	public void CollectionMethodsDemo() {
+	public void CollectionMethodsDemo(List<Integer> numbers) {
+		
 		System.out.println("In Collection Methods Demo:");
 		
-		List<Integer> numbers = new ArrayList<>();
 		List<Integer> newList =  new ArrayList<>();
-		numbers.add(1);
-		numbers.add(1, 0);
-		numbers.add(2);
-		numbers.add(3);
-		numbers.add(4);
+		
 		if(!numbers.isEmpty() && numbers.size()>0) {
 			Iterator<Integer> ite  = numbers.iterator();
 			while(ite.hasNext()) {
@@ -65,6 +69,32 @@ public class CollectionCls {
 		
 		numbers.clear();
 		System.out.println("After clear() size is :"+ numbers.size() );
+		
+		
 	}
 
+	public void queueDemo() {
+		//Minpriority queue to solve problems of min heap
+		PriorityQueue<Integer> minq = new PriorityQueue<>();
+		minq.add(5);
+		minq.add(2);
+		minq.add(8);
+		minq.add(1);
+		System.out.println("Printing Min Priority Queue Elements:");
+		minq.forEach(val->System.out.println(val));
+		System.out.println("After Deleting element " + minq.poll());
+		minq.forEach(val->System.out.println(val));
+		
+		//Max priority queue to solve problems of max heap
+		PriorityQueue<Integer> maxq = new PriorityQueue<>((a,b)->b-a);
+		maxq.add(5);
+		maxq.add(2);
+		maxq.add(8);
+		maxq.add(1);
+		System.out.println("Printing Max Priority Queue Elements:");
+		maxq.forEach(val->System.out.println(val));
+		System.out.println("After Deleting element " + maxq.remove());
+		maxq.forEach(val->System.out.println(val));
+		
+	}
 }
