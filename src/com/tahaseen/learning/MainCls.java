@@ -22,6 +22,7 @@ public class MainCls {
 		cls.IterableMethodsDemo(numbers);
 		cls.CollectionMethodsDemo(numbers);
 		cls.queueDemo();
+		cls.dequeueDemo();
 		
 		List<Employee> empList = createEmp();
 //		Collections.sort(empList,(a,b)-> Double.compare(a.Salary,b.Salary));

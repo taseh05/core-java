@@ -1,5 +1,6 @@
 package com.tahaseen.learning;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -94,6 +95,31 @@ public class CollectionCls {
 		System.out.println("Printing Max Priority Queue Elements:");
 		maxq.forEach(val->System.out.println(val));
 		System.out.println("After Deleting element " + maxq.remove());
+		maxq.forEach(val->System.out.println(val));
+		
+	}
+	
+	public void dequeueDemo() {
+		//Dequeue as queue
+		ArrayDeque<Integer> minq = new ArrayDeque<>();
+		minq.addLast(5);
+		minq.addLast(2);
+		minq.addLast(8);
+		minq.addLast(1);
+		System.out.println("Printing DeQueue Elements:");
+		minq.forEach(val->System.out.println(val));
+		System.out.println("After Deleting element " + minq.removeFirst());
+		minq.forEach(val->System.out.println(val));
+		
+		//Dequeue as stack
+		ArrayDeque<Integer> maxq = new ArrayDeque();
+		maxq.addFirst(5);
+		maxq.addFirst(2);
+		maxq.addFirst(8);
+		maxq.addFirst(1);
+		System.out.println("Printing DeQueue Elements:");
+		maxq.forEach(val->System.out.println(val));
+		System.out.println("After Deleting element " + maxq.pop());
 		maxq.forEach(val->System.out.println(val));
 		
 	}
